@@ -3,7 +3,7 @@ include 'classes/usuario.php';
 
 $usuario = new Usuario();
 
-$usuario->getUsuarioAll();
+$usuario->getUsuarioEmpresa($_GET);
 
 
 

@@ -1,0 +1,28 @@
+body{
+    display: flex;
+    min-height: 70vh;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cabecalho{
+    text-align: center;
+    padding-bottom: 10%;
+}
+
+.titulo{
+    font-size: xx-large;
+    color: #E95420;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.sub-titulo{
+    font-size: x-small;
+    color: darkgrey;
+    padding-top: 1%;
+}

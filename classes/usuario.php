@@ -42,7 +42,55 @@ class Usuario extends Conexao{
         $consulta->bindValue('fone',  $fone);
         $consulta->bindValue('senha',  $senha);
         $consulta->execute();
-        echo json_encode($consulta->fetch());
+        
+        $resultado = $consulta->fetch();
+
+        if (isset($resultado)) {
+            echo json_encode($resultado);
+        } elseif (!isset($resultado)) {
+            return false;
+        }
+        
+    }
+
+    public function loginUsuario($dados)
+    {
+        $fone = $dados['fone'];
+        $senha = $dados['senha'];
+
+        $sql = "SELECT * FROM usuarios WHERE usuario_status='ativo' AND usuario_fone=:fone AND usuario_senha=:senha";
+        $consulta = Conexao::prepare($sql);
+        $consulta->bindValue('fone',  $fone);
+        $consulta->bindValue('senha',  $senha);
+        $consulta->execute();
+        
+        $resultado = $consulta->fetch();
+
+        if (isset($resultado)) {
+            echo json_encode($resultado);
+        } elseif (!isset($resultado)) {
+            return "";
+        }
+        
+    }
+
+    public function getUsuarioEmpresa($dados)
+    {
+        $usuario_id = $dados['id'];
+        
+        $sql = "SELECT empresas.empresa_id, empresas.empresa_nome FROM empresas WHERE usuario_id=:usuario_id";
+        $consulta = Conexao::prepare($sql);
+        $consulta->bindValue('usuario_id',  $usuario_id);
+        $consulta->execute();
+        
+        $resultado = $consulta->fetch();
+
+        if (isset($resultado)) {
+            echo json_encode($resultado);
+        } elseif (!isset($resultado)) {
+            return "";
+        }
+        
     }
 
 }

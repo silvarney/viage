@@ -27,14 +27,17 @@ class Destino extends Conexao{
 
         switch ($tipo) {
             case 'passagem':
-                $sql = "SELECT DISTINCT E.empresa_id, E.empresa_nome FROM passagens AS P
+                $sql = "SELECT DISTINCT E.* FROM passagens AS P
                 INNER JOIN empresas AS E
                 ON P.empresa_id = E.empresa_id
                  WHERE P.passagem_origem=:origem AND P.passagem_destino=:destino";
                 break;
             
             case 'encomenda':
-                $sql = "SELECT * FROM encomendas WHERE encomenda_origem=:origem AND encomenda_destino=:destino";
+                $sql = "SELECT DISTINCT E.* FROM encomendas AS EN
+                INNER JOIN empresas AS E
+                ON EN.empresa_id = E.empresa_id
+                 WHERE EN.encomenda_origem=:origem AND EN.encomenda_destino=:destino";
                 break;
         }
 

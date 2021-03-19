@@ -3,7 +3,7 @@ include 'classes/passagem.php';
 
 $passagem = new Passagem();
 
-$passagem->getpassagemAll();
+$passagem->getPassagemEmpresaAll($_GET);
 
 
 

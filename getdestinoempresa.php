@@ -3,7 +3,7 @@ include 'classes/destino.php';
 
 $destino = new Destino();
 
-$destino->getdestinoempresa($_GET);
+$destino->getDestinoEmpresa($_GET);
 
 
 
